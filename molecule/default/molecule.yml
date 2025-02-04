@@ -1,0 +1,24 @@
+---
+dependency:
+  name: galaxy
+
+driver:
+  name: docker
+
+platforms:
+  - name: instance
+    image: debian
+    privileged: true
+    command: sleep infinity
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    capabilities:
+      - SYS_ADMIN
+
+provisioner:
+  name: ansible
+  options:
+    vvv: true  # Verbose-Modus für Debugging
+
+verifier:
+  name: ansible
