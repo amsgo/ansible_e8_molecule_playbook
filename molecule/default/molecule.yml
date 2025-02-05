@@ -7,7 +7,7 @@ driver:
 
 platforms:
   - name: instance
-    image: debian
+    image: ${MOLECULE_DISTRO:-debian}
     privileged: true
     command: sleep infinity
     volumes:
