@@ -1,6 +1,6 @@
 ---
 name: CI
-'on':
+"on":
   pull_request:
   push:
     branches:
@@ -23,7 +23,7 @@ jobs:
       - name: Set up Python 3.
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'
+          python-version: "3.x"
 
       - name: Install test dependencies.
         run: pip3 install ansible-dev-tools molecule-docker
@@ -36,7 +36,7 @@ jobs:
 
       - name: Run Molecule tests.
         run: molecule test
-        env:  # Set environment variables for Molecule test
-          PY_COLORS: '1'  # Force color output for Molecule
-          ANSIBLE_FORCE_COLOR: '1'  # Force color output for Ansible
+        env: # Set environment variables for Molecule test
+          PY_COLORS: "1" # Force color output for Molecule
+          ANSIBLE_FORCE_COLOR: "1" # Force color output for Ansible
           MOLECULE_DISTRO: ${{ matrix.distro }}
