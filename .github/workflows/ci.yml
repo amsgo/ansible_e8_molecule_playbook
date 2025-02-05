@@ -15,7 +15,6 @@ jobs:
       matrix:
         distro:
           - debian
-#          - centos
 
     steps:
       - name: Check out the codebase.
