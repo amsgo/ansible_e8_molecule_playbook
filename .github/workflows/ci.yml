@@ -31,3 +31,7 @@ jobs:
       
       - name: Run Molecule tests.
         run: molecule test
+        env:  # Set environment variables for Molecule test
+          PY_COLORS: '1'  # Force color output for Molecule
+          ANSIBLE_FORCE_COLOR: '1'  # Force color output for Ansible
+          MOLECULE_DISTRO: ${{ matrix.distro }}
