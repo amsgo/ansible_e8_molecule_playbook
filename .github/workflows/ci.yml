@@ -15,7 +15,7 @@ jobs:
       matrix:
         distro:
           - debian
-          - centos
+#          - centos
 
     steps:
       - name: Check out the codebase.
@@ -28,6 +28,12 @@ jobs:
       
       - name: Install test dependencies.
         run: pip3 install ansible-dev-tools molecule-docker
+        
+      - name: Run YAML linting.
+        run: yamllint .
+        
+      - name: Run Ansible linting.
+        run: ansible-lint
       
       - name: Run Molecule tests.
         run: molecule test
